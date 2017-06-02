@@ -1,33 +1,39 @@
 #!/usr/bin/python3
 
+import sys
+import os
+import gettext
+
+from .common import PACKAGE
+from .alternative import Alternative
+from .common import logger
+
 import gi
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
+
 if Gtk.get_major_version() < 3 or Gtk.get_minor_version() < 14:
-    # We target on gtk+ 3.14 or later
-
-
-import pygtk
-pygtk.require ('2.0')
-import gtk, gobject
-from gtk import glade
-
-from common import PACKAGE
-import sys, os, gettext
-
-from alternative import Alternative
+    # We target on gtk+ 3.14 or later, or Debian 8+
+    # TODO: properly handle such situation, perhaps a pop-up window
+    raise Exception(
+            'Gtk+ 3.14 or higher is required but you have '
+            '{}.{}.'.format(Gtk.get_major_version(), Gtk.get_minor_version()))
 
 _ = gettext.gettext
 
 UPDATE_ALTERNATIVES = '/usr/bin/update-alternatives'
+#GLADE_FILE_PATH = '/usr/share/galternatives/galternatives.glade'
+
+GLADE_FILE_PATH = os.getcwd() + '/galternatives.glade'
 
 DEBUG = False
 def print_debug (str):
     if DEBUG:
-        print str
+        print(str)
 
-def gtk_main_quit (*args):
-    gtk.main_quit ()
+def gtk_main_quit(*args):
+    """Quit the loop of GTK GUI application."""
+    Gtk.main_quit()
 
 class GAlternatives:
     ALTERNATIVES = 0
@@ -42,8 +48,8 @@ class GAlternatives:
     def __init__ (self):
         gettext.bindtextdomain (PACKAGE)
         gettext.textdomain (PACKAGE)
-        glade.bindtextdomain(PACKAGE)
-        glade.textdomain (PACKAGE)
+#        glade.bindtextdomain(PACKAGE)
+#        glade.textdomain (PACKAGE)
 
         locale = os.getenv ('LC_MESSAGES')
 
@@ -59,7 +65,9 @@ class GAlternatives:
 
         print_debug ('SL: %s - L: %s' % (self.locale, locale))
 
-        self.gui = glade.XML ('/usr/share/galternatives/galternatives.glade')
+        self.builder = Gtk.Builder()
+        self.builder.add_from_file(GLADE_FILE_PATH)
+# TODO: FIXME FROM HERE
         self.gui.signal_autoconnect (globals ())
 
         self.main_window = self.gui.get_widget ('main_window')
@@ -160,12 +168,12 @@ class GAlternatives:
 
         # selects the first alternative on the list
         iter = self.alternatives_model.get_iter_first ()
-        if iter != None: 
+        if iter != None:
             self.alternatives_selection.select_iter (iter)
-        
+
     def mainloop (self):
-        gtk.main ()
-        
+        Gtk.main()
+
     def refresh_ui (self):
         while gtk.events_pending ():
             gtk.main_iteration_do (False)
@@ -193,10 +201,10 @@ class GAlternatives:
 #            self.add_opt_window.vbox.pack_start (label, 1, 1, 0)
 #
 #            entry
-            
-            
+
+
         self.add_opt_window.show_all ()
-        
+
 
     def hide_add_opt_window_cb (self, *args):
         self.add_opt_window.hide ()
@@ -261,7 +269,7 @@ class GAlternatives:
         unixname = alt.get_unixname ()
         tm, iter = selection.get_selected ()
         option = self.options_model.get_value (iter, self.OPTIONS)
-        
+
         if self.ask_for_confirmation (_('Are you sure you want to remove this option?')):
             cmd = '%s --remove %s %s > /dev/null 2>&1' % (UPDATE_ALTERNATIVES, unixname, option)
             result = os.system (cmd)
@@ -320,7 +328,7 @@ class GAlternatives:
         """
 
         self.options_tv.set_reorderable (True)
-        
+
         cell_renderer = gtk.CellRendererToggle ()
         cell_renderer.set_radio (True)
         cell_renderer.connect ('toggled', self.option_choice_toggled_cb)
@@ -349,7 +357,7 @@ class GAlternatives:
         column = gtk.TreeViewColumn (_('Name'), cell_renderer,
                                      text=self.SLAVENAME)
         self.slaves_tv.append_column (column)
-        
+
         cell_renderer = gtk.CellRendererText ()
         column = gtk.TreeViewColumn (_('Slave'), cell_renderer,
                                      text=self.SLAVEPATH)
@@ -364,11 +372,11 @@ class GAlternatives:
             iter = self.alternatives_model.append (None)
             self.alternatives_model.set (iter, self.ALTERNATIVES,
                                          alternative)
-            
+
     def alternative_selected_cb (self, selection):
         # feels faster ;)
         self.refresh_ui ()
-        
+
         self.update_metainfo ()
         self.update_options_tree ()
 
@@ -376,9 +384,9 @@ class GAlternatives:
     def status_changed_cb (self, *args):
         alt = self.alternative
         selection = self.options_tv.get_selection ()
-        
+
         self.refresh_ui ()
-        
+
         option = self.status_menu.get_history ()
         if option == 0:
             alt.set_option_status ('auto')
@@ -387,14 +395,14 @@ class GAlternatives:
             alt.set_option_status ('manual')
             tm, iter = selection.get_selected ()
             self.set_alternative_option (iter)
-            
+
         self.update_metainfo ()
         self.update_options_tree ()
 
     def update_options_tree (self):
         alt = self.alternative
         selection = self.options_tv.get_selection ()
-       
+
         self.options_model.clear ()
 
         for option in alt.get_options ():
@@ -411,7 +419,7 @@ class GAlternatives:
 
         # selects the first alternative on the list
         iter = self.options_model.get_iter_first ()
-        if iter != None: 
+        if iter != None:
             selection.select_iter (iter)
 
     def option_get_selected (self):
@@ -419,7 +427,7 @@ class GAlternatives:
         tm, iter = selection.get_selected ()
         if iter == None:
             return
-        
+
         return tm.get_value (iter, self.OPTIONS)
 
     def show_details_cb (self, data):
@@ -443,12 +451,12 @@ class GAlternatives:
 
     def options_find_path_in_list (self, path):
         alt = self.alternative
-        
+
         for option in alt.get_options ():
             if option['path'] == path:
                 return option
         return None
-    
+
     def update_slaves_tree (self):
         option = self.option_get_selected ()
         self.slaves_model.clear ()
@@ -459,11 +467,11 @@ class GAlternatives:
             self.slaves_model.set (iter,
                                    self.SLAVENAME, slave['name'],
                                    self.SLAVEPATH, slave['path'])
-                
+
     def update_metainfo (self):
         selection = self.alternatives_tv.get_selection ()
         tm, iter = selection.get_selected ()
-            
+
         self.alternative = Alternative (tm.get_value (iter, self.ALTERNATIVES))
         alt = self.alternative
 
@@ -473,7 +481,7 @@ class GAlternatives:
 
         # feedback!
         self.refresh_ui ()
-        
+
         # set the name of the alternative to the information area
         alternative_label.set_markup ('<span size="xx-large" weight="bold">%s</span>\n[ %s ]' % \
                                       (alt.get_name (), alt.get_link ()))
@@ -491,13 +499,13 @@ class GAlternatives:
 if __name__ == '__main__':
     if os.getuid ():
         if os.access ('/usr/bin/gksu', os.X_OK):
-            sys.exit (os.system ('/usr/bin/gksu -t "%s" -m "%s" -u root %s' % 
+            sys.exit (os.system ('/usr/bin/gksu -t "%s" -m "%s" -u root %s' %
                                  (_('Running Alternatives Configurator...'),
                                   _('<b>I need your root password to run\n'
                                     'the Alternatives Configurator.</b>'),
                                   sys.argv[0])))
         else:
-            dialog = gtk.MessageDialog (None, gtk.DIALOG_DESTROY_WITH_PARENT,
+            dialog = Gtk.MessageDialog (None, gtk.DIALOG_DESTROY_WITH_PARENT,
                                         gtk.MESSAGE_WARNING, gtk.BUTTONS_CLOSE)
             dialog.set_markup (_('<b>This program should be run as root and /usr/bin/gksu is not available.</b>\n\n'
                                  'I am unable to request the password myself without gksu. Unless you have '
@@ -505,7 +513,7 @@ if __name__ == '__main__':
                                  'the alternatives system, GAlternatives will not work.'))
             dialog.run ()
             dialog.destroy ()
-    
+
     DEBUG = False
     try:
         if sys.argv[1] == '--debug':
@@ -517,4 +525,4 @@ if __name__ == '__main__':
 
     print_debug (_('Testing galternatives...'))
 
-    gtk.main ()
+    Gtk.main ()

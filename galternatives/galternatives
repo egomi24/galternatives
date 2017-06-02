@@ -3,9 +3,10 @@
 import os
 import sys
 import galternatives
-from galternatives import gtk
+from galternatives import Gtk
 import gettext
 from galternatives.common import PACKAGE
+from galternatives.common import logger
 
 _ = gettext.gettext
 

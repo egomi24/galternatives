@@ -1,12 +1,13 @@
 #!/usr/bin/python3
 
-from common import PACKAGE
+from .common import PACKAGE
 import os
 import gettext
 
 _ = gettext.gettext
 
-from gadebug import print_debug
+from .gadebug import print_debug
+from .common import logger
 
 class Alternative():
     def __init__ (self, unixname, locale = 'C'):

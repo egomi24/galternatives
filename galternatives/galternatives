@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
-import os, sys
+import os
+import sys
 import galternatives
 from galternatives import gtk
 import gettext
@@ -13,7 +14,7 @@ gettext.textdomain (PACKAGE)
 
 if os.getuid ():
         if os.access ('/usr/bin/gksu', os.X_OK):
-            sys.exit (os.system ('/usr/bin/gksu -t "%s" -m "%s" -u root %s' % 
+            sys.exit (os.system ('/usr/bin/gksu -t "%s" -m "%s" -u root %s' %
                                  (_('Running Alternatives Configurator...'),
                                   _('<b>I need your root password to run\n'
                                     'the Alternatives Configurator.</b>'),
@@ -27,7 +28,7 @@ if os.getuid ():
                                  'the alternatives system, GAlternatives will not work.'))
             dialog.run ()
             dialog.destroy ()
-    
+
 ga = galternatives.GAlternatives ()
 try:
     if sys.argv[1] == '--debug':

@@ -1,4 +1,12 @@
-#!/usr/bin/python
+#!/usr/bin/python3
+
+import gi
+gi.require_version('Gtk', '3.0')
+from gi.repository import Gtk
+if Gtk.get_major_version() < 3 or Gtk.get_minor_version() < 14:
+    # We target on gtk+ 3.14 or later
+
+
 import pygtk
 pygtk.require ('2.0')
 import gtk, gobject
@@ -59,7 +67,7 @@ class GAlternatives:
         # menus / about / credits
         self.about_window = self.gui.get_widget ('about_window')
         self.about_window.connect ('delete-event', self.close_about_window_cb)
-        
+
         self.about_image = self.gui.get_widget ('about_image')
         self.about_image.set_from_file ('/usr/share/pixmaps/galternatives.png')
 

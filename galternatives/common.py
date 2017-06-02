@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 PACKAGE='galternatives'
-VERSION='0.13.5'
+VERSION='0.88.0'

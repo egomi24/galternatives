@@ -1,13 +1,14 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 from common import PACKAGE
-import os, gettext
+import os
+import gettext
 
 _ = gettext.gettext
 
 from gadebug import print_debug
 
-class Alternative:
+class Alternative():
     def __init__ (self, unixname, locale = 'C'):
         # default fallback, in case there's no control file, or a
         # corrupted one
@@ -26,8 +27,8 @@ class Alternative:
             original_desc = ''
             translated_desc = ''
 
-            while 1:
-                str = desc_file.readline ().strip ()
+            while True:
+                str = desc_file.readline().strip()
                 if str == '':
                     break
 
@@ -54,7 +55,7 @@ class Alternative:
                 self.name = translated_name
             else:
                 self.name = original_name
-                
+
             if translated_desc:
                 self.description = translated_desc
             else:
@@ -77,16 +78,16 @@ class Alternative:
         # we need that to know how many slaves to expect from each
         # alternative
         self.slaves = []
-        while 1:
+        while True:
             line = altfile.readline ().strip ()
             if line == '':
                 break
-            
+
             sdict = {}
             sdict['name'] = line
             sdict['link'] = altfile.readline ().strip ()
             self.slaves.append (sdict)
-            
+
         self.current_option = os.readlink ('/etc/alternatives/%s' %
                                            (unixname))
         print_debug ('Link currently points to: %s' % (self.current_option))
@@ -160,8 +161,9 @@ class Alternative:
         self.link = link
 
 if __name__ == '__main__':
-    alt = Alternative ('x-terminal-emulator')
-    print 'name: %s\nlink: %s\ndescription: %s\nOptions:' \
-          % (alt.get_name (), alt.get_link(), alt.get_description ())
-    print alt.get_options ()
-    print 'current_option: %s' % (alt.get_current_option ())
+    'Test the function of class Alternative().'
+    alt = Alternative('x-terminal-emulator')
+    print('name: %s\nlink: %s\ndescription: %s\nOptions:' \
+          % (alt.get_name (), alt.get_link(), alt.get_description ()))
+    print(alt.get_options())
+    print('current_option: %s' % (alt.get_current_option ()))

@@ -29,6 +29,7 @@ def gtk_main_quit(*args):
     """Quit the loop of GTK GUI application."""
     Gtk.main_quit()
 
+
 class GAlternatives:
     ALTERNATIVES = 0
 
@@ -38,6 +39,16 @@ class GAlternatives:
 
     SLAVENAME = 0
     SLAVEPATH = 1
+
+    """Explicitly list signals to connect here."""
+    class WindowActionHandler():
+        def onDeleteMainWindow(self, *args):
+            "Should be called by destroying main window, no args."
+            gtk_main_quit(*args)
+
+        def onDeleteSubWindow(self, window):
+            "Called by close button, specify correct window in glade."
+            window.hide()
 
     def __init__ (self):
         gettext.bindtextdomain (PACKAGE)
@@ -57,15 +68,16 @@ class GAlternatives:
         'Load glade XML file'
         self.builder = Gtk.Builder()
         self.builder.add_from_file(GLADE_FILE_PATH)
-# TODO: FIXME FROM HERE
-        #self.gui.signal_autoconnect (globals ())
+        self.builder.connect_signals(self.WindowActionHandler())
 
         self.main_window = self.builder.get_object('main_window')
 
 
+# FIXME: about/credit window not drawn after destruction
         'About Window, menus / about / credits'
         self.about_window = self.builder.get_object('about_window')
-        self.about_window.connect ('delete-event', self.close_about_window_cb)
+        self.about_window.connect('delete-event', lambda w, e: w.hide() or True)
+# Note: This is function(window, event): window.hide()
 
         self.about_image = self.builder.get_object('about_image')
         self.about_image.set_from_file('/usr/share/pixmaps/galternatives.png')
@@ -80,7 +92,7 @@ class GAlternatives:
         self.about_close_button.connect ('clicked', self.close_about_window_cb)
 
         self.credits_window = self.builder.get_object('credits_window')
-        self.credits_window.connect('delete-event', self.close_credits_window_cb)
+        self.credits_window.connect('delete-event', lambda w, e: w.hide() or True)
 
         translator_label = self.builder.get_object('translator_label')
         if translator_label.get_text () == 'translator_credits':
@@ -102,7 +114,7 @@ class GAlternatives:
 #
 
         self.status_menu = self.builder.get_object('status_menu')
-        self.status_changed_signal = self.status_menu.connect('changed', self.status_changed_cb)
+#        self.status_changed_signal = self.status_menu.connect('changed', self.status_changed_cb)
 
 #        self.update_alternatives ()
 #
@@ -373,7 +385,7 @@ class GAlternatives:
 #        self.update_options_tree ()
 #
 #
-    def status_changed_cb (self, *args):
+#    def status_changed_cb (self, *args):
 #        alt = self.alternative
 #        selection = self.options_tv.get_selection ()
 #
@@ -432,14 +444,14 @@ class GAlternatives:
     def show_about_window_cb (self, *args):
         self.about_window.show_all ()
 
-    def close_about_window_cb (self, *args):
+    def close_about_window_cb(self, *args):
         self.about_window.hide()
 
     def show_credits_window_cb (self, *args):
         self.credits_window.show_all ()
 
     def close_credits_window_cb (self, *args):
-        self.credits_window.hide ()
+        self.credits_window.hide()
 
 #    def options_find_path_in_list (self, path):
 #        alt = self.alternative

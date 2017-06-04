@@ -585,6 +585,7 @@ for the user by default.
               <object class="GtkTreeView" id="alternatives_tv">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="hexpand">True</property>
                 <property name="vexpand">True</property>
                 <child internal-child="selection">
                   <object class="GtkTreeSelection"/>

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: galternatives 0.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-27 11:08+0800\n"
+"POT-Creation-Date: 2017-06-05 14:55+0800\n"
 "PO-Revision-Date: 2006-01-14 17:19+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
@@ -16,15 +16,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../galternatives/main.py:80
+#: ../galternatives/main.py:99
 msgid "Unknown/None"
 msgstr "Okänd/Ingen"
 
-#: ../galternatives/main.py:167
+#: ../galternatives/main.py:187
 msgid "Alternatives"
 msgstr "Alternativ"
 
-#: ../galternatives/main.py:210
+#: ../galternatives/main.py:232
 msgid ""
 "The file or directory you selected does not exist.\n"
 "Please select a valid one."
@@ -32,64 +32,31 @@ msgstr ""
 "Filen eller katalogen du valde existerar inte.\n"
 "Välj en giltig."
 
-#: ../galternatives/main.py:257
+#: ../galternatives/main.py:279
 msgid "Are you sure you want to remove this option?"
 msgstr "Är du säker att du vill ta bort detta alternativ?"
 
-#: ../galternatives/main.py:319
+#: ../galternatives/main.py:341
 msgid "Choice"
 msgstr "Val"
 
-#: ../galternatives/main.py:326
+#: ../galternatives/main.py:348
 msgid "Priority"
 msgstr "Prioritet"
 
-#: ../galternatives/main.py:335 ../galternatives.h:16
+#: ../galternatives/main.py:357 ../galternatives.h:16
 msgid "Options"
 msgstr "Alternativ"
 
-#: ../galternatives/main.py:341
+#: ../galternatives/main.py:363
 msgid "Name"
 msgstr "Namn"
 
-#: ../galternatives/main.py:346
+#: ../galternatives/main.py:368
 msgid "Slave"
 msgstr "Slav"
 
-#: ../galternatives/main.py:487
-msgid "Running Alternatives Configurator..."
-msgstr "Kör Alternativkonfiguratorn..."
-
-#: ../galternatives/main.py:488
-msgid ""
-"<b>I need your root password to run\n"
-"the Alternatives Configurator.</b>"
-msgstr ""
-"<b>Jag behöver ditt root-lösenord för\n"
-"att köra Alternativkonfiguratorn.</b>"
-
-#: ../galternatives/main.py:494
-#, fuzzy
-msgid ""
-"<b>This program should be run as root and /usr/bin/gksu is not available.</"
-"b>\n"
-"\n"
-"I am unable to request the password myself without gksu. Unless you have "
-"modified your system to explicitly allow your normal user to modify the "
-"alternatives system, GAlternatives will not work."
-msgstr ""
-"<b>Detta program bör köras som root och /usr/bin/gksu är inte tillgänglig.</"
-"b>\n"
-"\n"
-"Jag kan inte begära lösenordet själv utan gksu. Om du inte har modifierat "
-"ditt system att specifikt tillåta din normala användare att modifiera "
-"alterativsystemet kommer GAlternatives inte att fungera."
-
-#: ../galternatives/main.py:510
-msgid "Testing galternatives..."
-msgstr "Testar galternatives..."
-
-#: ../galternatives/alternative.py:16 ../galternatives.h:15
+#: ../galternatives/alternative.py:18 ../galternatives.h:15
 msgid "No description"
 msgstr "Ingen beskrivning"
 
@@ -223,3 +190,32 @@ msgstr "Alternativkonfiguratorn"
 #: ../galternatives.desktop.in.h:2
 msgid "Configure the system default alternatives"
 msgstr "Konfigurera systemets standardalternativ"
+
+#~ msgid "Running Alternatives Configurator..."
+#~ msgstr "Kör Alternativkonfiguratorn..."
+
+#~ msgid ""
+#~ "<b>I need your root password to run\n"
+#~ "the Alternatives Configurator.</b>"
+#~ msgstr ""
+#~ "<b>Jag behöver ditt root-lösenord för\n"
+#~ "att köra Alternativkonfiguratorn.</b>"
+
+#, fuzzy
+#~ msgid ""
+#~ "<b>This program should be run as root and /usr/bin/gksu is not available."
+#~ "</b>\n"
+#~ "\n"
+#~ "I am unable to request the password myself without gksu. Unless you have "
+#~ "modified your system to explicitly allow your normal user to modify the "
+#~ "alternatives system, GAlternatives will not work."
+#~ msgstr ""
+#~ "<b>Detta program bör köras som root och /usr/bin/gksu är inte tillgänglig."
+#~ "</b>\n"
+#~ "\n"
+#~ "Jag kan inte begära lösenordet själv utan gksu. Om du inte har modifierat "
+#~ "ditt system att specifikt tillåta din normala användare att modifiera "
+#~ "alterativsystemet kommer GAlternatives inte att fungera."
+
+#~ msgid "Testing galternatives..."
+#~ msgstr "Testar galternatives..."

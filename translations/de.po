@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: galternatives 0.13.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-27 11:08+0800\n"
+"POT-Creation-Date: 2017-06-05 14:55+0800\n"
 "PO-Revision-Date: 2009-10-07 19:41+GMT\n"
 "Last-Translator: Chris Leick <c.leick@vollbio.de>\n"
 "Language-Team: German <debian-l10n-german@lists.debian.org>\n"
@@ -18,15 +18,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../galternatives/main.py:80
+#: ../galternatives/main.py:99
 msgid "Unknown/None"
 msgstr "Unbekannt/Keine"
 
-#: ../galternatives/main.py:167
+#: ../galternatives/main.py:187
 msgid "Alternatives"
 msgstr "Alternativen"
 
-#: ../galternatives/main.py:210
+#: ../galternatives/main.py:232
 msgid ""
 "The file or directory you selected does not exist.\n"
 "Please select a valid one."
@@ -34,65 +34,31 @@ msgstr ""
 "Die Datei oder das Verzeichnis, das Sie ausgewählt haben, existiert nicht.\n"
 "Bitte wählen Sie ein gültiges."
 
-#: ../galternatives/main.py:257
+#: ../galternatives/main.py:279
 msgid "Are you sure you want to remove this option?"
 msgstr "Sind Sie sicher, dass Sie diese Option entfernen möchten?"
 
-#: ../galternatives/main.py:319
+#: ../galternatives/main.py:341
 msgid "Choice"
 msgstr "Auswahl"
 
-#: ../galternatives/main.py:326
+#: ../galternatives/main.py:348
 msgid "Priority"
 msgstr "Priorität"
 
-#: ../galternatives/main.py:335 ../galternatives.h:16
+#: ../galternatives/main.py:357 ../galternatives.h:16
 msgid "Options"
 msgstr "Optionen"
 
-#: ../galternatives/main.py:341
+#: ../galternatives/main.py:363
 msgid "Name"
 msgstr "Name"
 
-#: ../galternatives/main.py:346
+#: ../galternatives/main.py:368
 msgid "Slave"
 msgstr "Slave"
 
-#: ../galternatives/main.py:487
-msgid "Running Alternatives Configurator..."
-msgstr "Alternativen-Einrichter wird ausgeführt ..."
-
-#: ../galternatives/main.py:488
-msgid ""
-"<b>I need your root password to run\n"
-"the Alternatives Configurator.</b>"
-msgstr ""
-"<b>Ihr root-Passwort wird zur Ausführung\n"
-"des Alternativen-Einrichters benötigt.</b>"
-
-#: ../galternatives/main.py:494
-#, fuzzy
-msgid ""
-"<b>This program should be run as root and /usr/bin/gksu is not available.</"
-"b>\n"
-"\n"
-"I am unable to request the password myself without gksu. Unless you have "
-"modified your system to explicitly allow your normal user to modify the "
-"alternatives system, GAlternatives will not work."
-msgstr ""
-"<b>Dieses Programm sollte als root ausgeführt werden und /usr/bin/gksu ist "
-"nicht verfügbar.</b>\n"
-"\n"
-"Das Passwort kann ohne gksu nicht abgefragt werden. Sofern Sie Ihr System "
-"nicht so geändert haben, dass ihrem normalen Benutzer ausdrücklich erlaubt "
-"wird das Alternativen-System zu verändern, wird GAlternatives nicht "
-"funktionieren."
-
-#: ../galternatives/main.py:510
-msgid "Testing galternatives..."
-msgstr "galternatives wird getestet ..."
-
-#: ../galternatives/alternative.py:16 ../galternatives.h:15
+#: ../galternatives/alternative.py:18 ../galternatives.h:15
 msgid "No description"
 msgstr "Keine Beschreibung"
 
@@ -224,3 +190,33 @@ msgstr "Alternativeneinrichter"
 #: ../galternatives.desktop.in.h:2
 msgid "Configure the system default alternatives"
 msgstr "Die Standard-Alternativen des Systems einrichten."
+
+#~ msgid "Running Alternatives Configurator..."
+#~ msgstr "Alternativen-Einrichter wird ausgeführt ..."
+
+#~ msgid ""
+#~ "<b>I need your root password to run\n"
+#~ "the Alternatives Configurator.</b>"
+#~ msgstr ""
+#~ "<b>Ihr root-Passwort wird zur Ausführung\n"
+#~ "des Alternativen-Einrichters benötigt.</b>"
+
+#, fuzzy
+#~ msgid ""
+#~ "<b>This program should be run as root and /usr/bin/gksu is not available."
+#~ "</b>\n"
+#~ "\n"
+#~ "I am unable to request the password myself without gksu. Unless you have "
+#~ "modified your system to explicitly allow your normal user to modify the "
+#~ "alternatives system, GAlternatives will not work."
+#~ msgstr ""
+#~ "<b>Dieses Programm sollte als root ausgeführt werden und /usr/bin/gksu "
+#~ "ist nicht verfügbar.</b>\n"
+#~ "\n"
+#~ "Das Passwort kann ohne gksu nicht abgefragt werden. Sofern Sie Ihr System "
+#~ "nicht so geändert haben, dass ihrem normalen Benutzer ausdrücklich "
+#~ "erlaubt wird das Alternativen-System zu verändern, wird GAlternatives "
+#~ "nicht funktionieren."
+
+#~ msgid "Testing galternatives..."
+#~ msgstr "galternatives wird getestet ..."

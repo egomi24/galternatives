@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: galternatives 0.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-27 11:08+0800\n"
+"POT-Creation-Date: 2017-06-05 14:55+0800\n"
 "PO-Revision-Date: 2005-02-20 08:20+0100\n"
 "Last-Translator: Sebastien Bacher <seb128@debian.org>\n"
 "Language-Team: French <debian-l10n-french@lists.debian.org>\n"
@@ -17,15 +17,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.9.1\n"
 
-#: ../galternatives/main.py:80
+#: ../galternatives/main.py:99
 msgid "Unknown/None"
 msgstr "Inconnu/Aucun"
 
-#: ../galternatives/main.py:167
+#: ../galternatives/main.py:187
 msgid "Alternatives"
 msgstr "Alternatives"
 
-#: ../galternatives/main.py:210
+#: ../galternatives/main.py:232
 msgid ""
 "The file or directory you selected does not exist.\n"
 "Please select a valid one."
@@ -33,65 +33,31 @@ msgstr ""
 "Le fichier ou répertoire choisi n'existe pas.\n"
 "Veuillez choisir un chemin valable."
 
-#: ../galternatives/main.py:257
+#: ../galternatives/main.py:279
 msgid "Are you sure you want to remove this option?"
 msgstr "Voulez-vous vraiment supprimer cette option ?"
 
-#: ../galternatives/main.py:319
+#: ../galternatives/main.py:341
 msgid "Choice"
 msgstr "Choix"
 
-#: ../galternatives/main.py:326
+#: ../galternatives/main.py:348
 msgid "Priority"
 msgstr "Priorité"
 
-#: ../galternatives/main.py:335 ../galternatives.h:16
+#: ../galternatives/main.py:357 ../galternatives.h:16
 msgid "Options"
 msgstr "Options"
 
-#: ../galternatives/main.py:341
+#: ../galternatives/main.py:363
 msgid "Name"
 msgstr "Nom"
 
-#: ../galternatives/main.py:346
+#: ../galternatives/main.py:368
 msgid "Slave"
 msgstr "Lien secondaire"
 
-#: ../galternatives/main.py:487
-msgid "Running Alternatives Configurator..."
-msgstr "Exécution du configurateur d'alternatives..."
-
-#: ../galternatives/main.py:488
-msgid ""
-"<b>I need your root password to run\n"
-"the Alternatives Configurator.</b>"
-msgstr ""
-"<b>Le mot de passe du superutilisateur est nécessaire pour lancer le "
-"configurateur d'alternatives.</b>"
-
-#: ../galternatives/main.py:494
-#, fuzzy
-msgid ""
-"<b>This program should be run as root and /usr/bin/gksu is not available.</"
-"b>\n"
-"\n"
-"I am unable to request the password myself without gksu. Unless you have "
-"modified your system to explicitly allow your normal user to modify the "
-"alternatives system, GAlternatives will not work."
-msgstr ""
-"<b>Ce programme doit s'exécuter avec les privilèges du superutilisateur et /"
-"usr/bin/gksu n'est pas disponible.</b>\n"
-"\n"
-"Il n'est pas possible de demander le mot de passe du superutilisateur sans "
-"ce programme. Il ne sera pas possible d'utiliser GAlternatives à moins "
-"d'autoriser les utilisateurs non privilégiés à modifier le système "
-"d'alternatives."
-
-#: ../galternatives/main.py:510
-msgid "Testing galternatives..."
-msgstr "Vérification de galternatives..."
-
-#: ../galternatives/alternative.py:16 ../galternatives.h:15
+#: ../galternatives/alternative.py:18 ../galternatives.h:15
 msgid "No description"
 msgstr "Aucune description"
 
@@ -223,6 +189,36 @@ msgstr "Configurateur d'alternatives"
 #: ../galternatives.desktop.in.h:2
 msgid "Configure the system default alternatives"
 msgstr "Configuration des alternatives par défaut du système"
+
+#~ msgid "Running Alternatives Configurator..."
+#~ msgstr "Exécution du configurateur d'alternatives..."
+
+#~ msgid ""
+#~ "<b>I need your root password to run\n"
+#~ "the Alternatives Configurator.</b>"
+#~ msgstr ""
+#~ "<b>Le mot de passe du superutilisateur est nécessaire pour lancer le "
+#~ "configurateur d'alternatives.</b>"
+
+#, fuzzy
+#~ msgid ""
+#~ "<b>This program should be run as root and /usr/bin/gksu is not available."
+#~ "</b>\n"
+#~ "\n"
+#~ "I am unable to request the password myself without gksu. Unless you have "
+#~ "modified your system to explicitly allow your normal user to modify the "
+#~ "alternatives system, GAlternatives will not work."
+#~ msgstr ""
+#~ "<b>Ce programme doit s'exécuter avec les privilèges du superutilisateur "
+#~ "et /usr/bin/gksu n'est pas disponible.</b>\n"
+#~ "\n"
+#~ "Il n'est pas possible de demander le mot de passe du superutilisateur "
+#~ "sans ce programme. Il ne sera pas possible d'utiliser GAlternatives à "
+#~ "moins d'autoriser les utilisateurs non privilégiés à modifier le système "
+#~ "d'alternatives."
+
+#~ msgid "Testing galternatives..."
+#~ msgstr "Vérification de galternatives..."
 
 #~ msgid ""
 #~ "Default Terminal Emulator to use when running text-based applications, "

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: galternatives 0.13.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-27 11:08+0800\n"
+"POT-Creation-Date: 2017-06-05 14:55+0800\n"
 "PO-Revision-Date: 2017-01-27 10:41+0800\n"
 "Last-Translator: Boyuan Yang <073plan@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <debian-l10n-chinese@lists.debian.org>\n"
@@ -18,15 +18,15 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 1.8.11\n"
 
-#: ../galternatives/main.py:80
+#: ../galternatives/main.py:99
 msgid "Unknown/None"
 msgstr "未知/无"
 
-#: ../galternatives/main.py:167
+#: ../galternatives/main.py:187
 msgid "Alternatives"
 msgstr "可选项"
 
-#: ../galternatives/main.py:210
+#: ../galternatives/main.py:232
 msgid ""
 "The file or directory you selected does not exist.\n"
 "Please select a valid one."
@@ -34,61 +34,31 @@ msgstr ""
 "您选择的文件或目录不存在。\n"
 "请选择一个有效的项目。"
 
-#: ../galternatives/main.py:257
+#: ../galternatives/main.py:279
 msgid "Are you sure you want to remove this option?"
 msgstr "您确定要删除这个选项吗？"
 
-#: ../galternatives/main.py:319
+#: ../galternatives/main.py:341
 msgid "Choice"
 msgstr "选择项"
 
-#: ../galternatives/main.py:326
+#: ../galternatives/main.py:348
 msgid "Priority"
 msgstr "优先级"
 
-#: ../galternatives/main.py:335 ../galternatives.h:16
+#: ../galternatives/main.py:357 ../galternatives.h:16
 msgid "Options"
 msgstr "可选项"
 
-#: ../galternatives/main.py:341
+#: ../galternatives/main.py:363
 msgid "Name"
 msgstr "名称"
 
-#: ../galternatives/main.py:346
+#: ../galternatives/main.py:368
 msgid "Slave"
 msgstr "子配置"
 
-#: ../galternatives/main.py:487
-msgid "Running Alternatives Configurator..."
-msgstr "正在运行可选项配置工具..."
-
-#: ../galternatives/main.py:488
-msgid ""
-"<b>I need your root password to run\n"
-"the Alternatives Configurator.</b>"
-msgstr ""
-"<b>我需要您的 root 密码来运行\n"
-"可选项配置工具。</b>"
-
-#: ../galternatives/main.py:494
-msgid ""
-"<b>This program should be run as root and /usr/bin/gksu is not available.</"
-"b>\n"
-"\n"
-"I am unable to request the password myself without gksu. Unless you have "
-"modified your system to explicitly allow your normal user to modify the "
-"alternatives system, GAlternatives will not work."
-msgstr ""
-"<b>该程序应当以 root 用户身份运行，但是 /usr/bin/gksu 不可用。</b>\n"
-"\n"
-"没有 gksu，我无法自行请求密码。除非您修改了您的系统配置以使得 alternatives 系"
-"统可以允许普通用户进行修改，GAltarnatives 将无法工作。"
-
-#: ../galternatives/main.py:510
-msgid "Testing galternatives..."
-msgstr "正在测试 galternatives..."
-
-#: ../galternatives/alternative.py:16 ../galternatives.h:15
+#: ../galternatives/alternative.py:18 ../galternatives.h:15
 msgid "No description"
 msgstr "无描述"
 
@@ -219,3 +189,29 @@ msgstr "可选项配置工具"
 #: ../galternatives.desktop.in.h:2
 msgid "Configure the system default alternatives"
 msgstr "配置系统可选项的默认值"
+
+#~ msgid "Running Alternatives Configurator..."
+#~ msgstr "正在运行可选项配置工具..."
+
+#~ msgid ""
+#~ "<b>I need your root password to run\n"
+#~ "the Alternatives Configurator.</b>"
+#~ msgstr ""
+#~ "<b>我需要您的 root 密码来运行\n"
+#~ "可选项配置工具。</b>"
+
+#~ msgid ""
+#~ "<b>This program should be run as root and /usr/bin/gksu is not available."
+#~ "</b>\n"
+#~ "\n"
+#~ "I am unable to request the password myself without gksu. Unless you have "
+#~ "modified your system to explicitly allow your normal user to modify the "
+#~ "alternatives system, GAlternatives will not work."
+#~ msgstr ""
+#~ "<b>该程序应当以 root 用户身份运行，但是 /usr/bin/gksu 不可用。</b>\n"
+#~ "\n"
+#~ "没有 gksu，我无法自行请求密码。除非您修改了您的系统配置以使得 "
+#~ "alternatives 系统可以允许普通用户进行修改，GAltarnatives 将无法工作。"
+
+#~ msgid "Testing galternatives..."
+#~ msgstr "正在测试 galternatives..."

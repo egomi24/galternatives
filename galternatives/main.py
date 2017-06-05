@@ -69,6 +69,7 @@ class GAlternatives:
         self.builder = Gtk.Builder()
         self.builder.add_from_file(GLADE_FILE_PATH)
         self.builder.connect_signals(self.WindowActionHandler())
+        self.builder.set_translation_domain(PACKAGE) # XXX: needs to reconsider
 
         self.main_window = self.builder.get_object('main_window')
 
@@ -114,7 +115,7 @@ class GAlternatives:
 
 
         self.status_menu = self.builder.get_object('status_menu') # TODO FIXME Status menu removed in Glade3 needs fix
-#        self.status_changed_signal = self.status_menu.connect('changed', self.status_changed_cb) # FIXME callback not reviewed
+        self.status_changed_signal = self.status_menu.connect('changed', self.status_changed_cb) # FIXME callback not reviewed
 
         self.update_alternatives()
 
@@ -502,7 +503,7 @@ class GAlternatives:
         # undo my changes
         self.status_menu.handler_block (self.status_changed_signal)
         if alt.get_option_status () == 'auto':
-            status_menu.set_history (0)
+            status_menu.set_active(0)
         else:
-            status_menu.set_history (1)
+            status_menu.set_active(1)
         self.status_menu.handler_unblock (self.status_changed_signal)
